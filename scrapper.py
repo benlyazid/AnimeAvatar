@@ -2,6 +2,21 @@ import requests
 from bs4 import BeautifulSoup
 import urllib.request
 import os
+from PIL import Image, ImageEnhance
+
+def resizeImage(imagePath):
+    # image = image.convert('RGB')
+    try:
+        image = Image.open(imagePath)
+        box = (0, 0, 225, 225)
+        cropped_image = image.crop(box)
+        cropped_image.save(imagePath)
+        image = Image.open(imagePath)
+        color = ImageEnhance.Color(image)
+        color.enhance(1.5).save(imagePath)
+        return 1
+    except:
+        return 0
 
 URL = "https://myanimelist.net/anime/21/One_Piece/characters"
 page = requests.get(URL)
@@ -11,7 +26,8 @@ soup = BeautifulSoup(page.content, "html.parser")
 job_elements = soup.find_all("a", class_="fw-n")
 
 count = 1
-indexDir = 1
+
+
 for element in job_elements:
 
     images = element.find_all('img')
@@ -33,13 +49,12 @@ for element in job_elements:
     if "images/characters" in imgURL:
         img_data = requests.get(imgURL).content
         dirIndex = int(count / 50)
-        fileDir = '/Users/kbenlyaz/Desktop/OnePieceAvatar/OnePiece/h' +  str(indexDir)
-        fileName = '/Users/kbenlyaz/Desktop/OnePieceAvatar/OnePiece/h' +  str(indexDir) + '/' + str(count) + '.jpg'
+        fileName = './OnePieceAvatar/' + str(count) + '.jpg'
+        fileDir = './OnePieceAvatar'
         if not os.path.exists(fileDir):
             os.makedirs(fileDir)
         with open(fileName, 'wb') as handler:
             handler.write(img_data)
-        count += 1
-        if count % 51 == 0:
-            indexDir += 1
+        count += resizeImage(fileName)
+
 
