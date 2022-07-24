@@ -1,0 +1,18 @@
+{
+  "name": "onepieceavatar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webp": "go-webp remove=true",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "go-webp": "^1.1.1",
+    "nodemon": "^2.0.19"
+  }
+}
