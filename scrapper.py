@@ -43,7 +43,7 @@ def scrapImages(URL, StoragePath):
             "https": "https://BU634LYWK58KHUYHHXI7O71UJYE06RITHE7EPPSQK2TBW0I9RONHUJVDVR84C1CV4YTET6EX10XM77IR:render_js=False&premium_proxy=True@proxy.scrapingbee.com:8887"
         }
 
-        _response = requests.get('https://api.genderize.io/?name=' + charachterName, proxies=proxies, verify=False)
+        _response = requests.get('https://api.genderize.io/?name=' + charachterName)
         data = BeautifulSoup(_response.content, "html.parser")
         dataJson=json.loads(data.text)
         charachterGender = 'male'
@@ -61,6 +61,7 @@ def scrapImages(URL, StoragePath):
         imgURL = urlSplited[0]
         urlSplitedPart_2 = urlSplited[1].split('?')[0]
         imgURL += urlSplitedPart_2
+        print(dataJson)
         print(count, imgURL , charachterName, charachterGender)
 
         if "images/characters" in imgURL:
@@ -75,7 +76,7 @@ def scrapImages(URL, StoragePath):
 
 
 
-url = 'https://myanimelist.net/anime/1735/Naruto__Shippuuden/characters'
-storage  = './anime/Naruto_Shippuuden'
+url = 'https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011/characters'
+storage  = 'Hunter_x_Hunter'
 scrapImages(url, storage)
 #281 kirwako
