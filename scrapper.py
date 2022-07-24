@@ -76,7 +76,7 @@ def scrapImages(URL, StoragePath):
 
 
 
-url = 'https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011/characters'
-storage  = 'Hunter_x_Hunter'
+url = 'https://myanimelist.net/anime/1735/Naruto__Shippuuden/characters'
+storage  = './anime/Naruto_Shippuuden'
 scrapImages(url, storage)
 #281 kirwako
