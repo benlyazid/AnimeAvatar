@@ -1,0 +1,23 @@
+.font-weight-600 {
+	font-weight: 600;
+}
+
+.font-weight-400 {
+	font-weight: 400;
+}
+
+.text-40-regular {
+	font-size: 40px;
+	line-height: 1.5;
+}
+
+.text-40-bold {
+	@extend .text-40-regular;
+	font-weight: 700;
+}
+
+.text-18-regular {
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 400;
+}

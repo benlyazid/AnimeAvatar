@@ -1,0 +1,31 @@
+$mainColor: #513333;
+$secondColor: #e6dccf;
+$thirdColor: #e23b3b;
+$whiteColor: #ffffff;
+$greyColor: rgb(196, 197, 204);
+$darkColor: #1d221c;
+$cyanColor: #0ff;
+
+.main-clr {
+	color: $mainColor;
+}
+
+.second-clr {
+	color: $secondColor;
+}
+
+.third-clr {
+	color: $thirdColor;
+}
+
+.white-clr {
+	color: $whiteColor;
+}
+
+.grey-clr {
+	color: $greyColor;
+}
+
+.cyan-clr {
+	color: $cyanColor;
+}

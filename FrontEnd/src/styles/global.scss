@@ -1,0 +1,72 @@
+@import "./includes/colors";
+@import "./includes/typography";
+@import "./includes/backgrounds";
+@import "./includes/spacing";
+@import "./includes/buttons";
+@import "./includes/animations";
+
+body {
+	margin: 0;
+	font-family: "Poppins", sans-serif;
+	background-image: url("../assets/backgrounds/bg-noise.png"), url("../assets/backgrounds/bg-top-nav.svg");
+    background-repeat: repeat, no-repeat;
+    background-color: rgb(50, 51, 62);
+	@extend .white-clr;
+}
+.links-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	// margin-bottom: 1rem;
+}
+
+.link {
+
+}
+
+.link:hover {
+	@extend .second-clr;
+	text-decoration: none;
+}
+
+.link-item {
+	@extend .white-clr;
+	@extend .link;
+	font-weight: 500;
+	// font-size: 20px;
+	margin-left: 28px;
+	display: flex;
+	align-items: flex-end;
+	gap: 12px;
+	line-height: 16px;
+	font-size: 16px;
+}
+
+
+.icon-animate:hover .icon {
+	animation: octocat-wave 0.56s;
+	fill: $secondColor;
+}
+
+.github-corner:hover .icon .octo-arm {
+	animation: octocat-wave 0.56s;
+}
+
+@keyframes octocat-wave {
+	0%,
+	100% {
+		transform: rotate(0);
+	}
+	20%,
+	60% {
+		transform: rotate(-20deg);
+	}
+	40%,
+	80% {
+		transform: rotate(10deg);
+	}
+}
+
+.home-body-container {
+	// height: calc(100vh - 106px);
+}

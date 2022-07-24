@@ -1,0 +1,17 @@
+.second-bg {
+	background-color: $secondColor;
+}
+
+.third-bg {
+	background-color: $thirdColor;
+}
+
+.main-gradient-bg {
+	background-image: linear-gradient(
+		90deg,
+		$thirdColor 0,
+		$thirdColor 50%,
+		$whiteColor 0,
+		$whiteColor
+	);
+}

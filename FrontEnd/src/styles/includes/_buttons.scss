@@ -1,0 +1,13 @@
+.main-btn {
+    color: $darkColor;
+    font-size: 14px;
+    font-weight: 500;
+    pointer-events: auto;
+    text-decoration: none;
+    background-color: $secondColor;
+    border: 1px solid $secondColor;
+	line-height: 1.25rem;
+	padding: 1.25rem;
+	border-radius: 0.75rem;
+	cursor: pointer;
+}
