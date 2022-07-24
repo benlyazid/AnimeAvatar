@@ -19,7 +19,7 @@ const  choseImage = async (name, directoryPath) =>{
 
     let sum  = convertNameToNumber(name) //? number of files% 
     const numberOfFiles = await  getNumberOfFiles(directoryPath)
-    if (name == 'seven')
+    if (name == 'seven' || name == 'khalid')
         sum = 4
     const imageIndex =  sum % numberOfFiles;
     const fullImagePath  = directoryPath + `/${imageIndex}.webp`

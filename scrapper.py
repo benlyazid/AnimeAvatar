@@ -18,7 +18,9 @@ def resizeImage(imagePath):
     except:
         return 0
 
-URL = "https://myanimelist.net/anime/21/One_Piece/characters"
+# URL = "https://myanimelist.net/anime/21/One_Piece/characters"
+URL = "https://myanimelist.net/anime/1735/Naruto__Shippuuden/characters"
+ANIME_NAME = 'Naruto__Shippuuden'
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, "html.parser")
@@ -48,9 +50,9 @@ for element in job_elements:
 
     if "images/characters" in imgURL:
         img_data = requests.get(imgURL).content
-        dirIndex = int(count / 50)
-        fileName = './OnePieceAvatar/' + str(count) + '.jpg'
-        fileDir = './OnePieceAvatar'
+
+        fileDir = './anime/Naruto__Shippuudenr'
+        fileName = fileDir + '/' + str(count) + '.jpg'
         if not os.path.exists(fileDir):
             os.makedirs(fileDir)
         with open(fileName, 'wb') as handler:
