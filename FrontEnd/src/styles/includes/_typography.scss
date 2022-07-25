@@ -16,6 +16,16 @@
 	font-weight: 700;
 }
 
+.text-32-regular {
+	font-size: 32px;
+	line-height: 1.5;
+}
+
+.text-32-bold {
+	@extend .text-32-regular;
+	font-weight: 700;
+}
+
 .text-18-regular {
 	font-size: 18px;
 	line-height: 28px;
