@@ -49,6 +49,9 @@ def scrapImages(URL, StoragePath):
         charachterGender = 'male'
         if 'gender' in dataJson and dataJson['gender']: 
             charachterGender = dataJson['gender']
+        else:
+            print("you have reached the limit of 1000 request in day")
+            return
 
         imgData = images[0]['data-srcset'] # get data inside the data-secret
         imgURL = imgData.split()[2] # get the second url with size  84 *124
