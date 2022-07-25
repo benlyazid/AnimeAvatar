@@ -229,3 +229,15 @@ body {
 		width: auto !important;
 	}
  }
+
+ .mark-down-preview {
+	background-color: transparent !important;
+ }
+
+ .badge {
+	color: $darkColor;
+	font-size: 87.5%;
+	background-color: #ebedf0;
+    border-radius: 0.4rem;
+	padding: 0.2rem 0.4rem;
+ }
