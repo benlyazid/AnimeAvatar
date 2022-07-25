@@ -3,6 +3,7 @@ import Select from "react-select";
 import { ReactComponent as CogIcon } from "../../../assets/icons/cog.svg";
 import { ReactComponent as UpRightIcon } from "../../../assets/icons/up-right.svg";
 import OutsideLink from "../../UI/OutsideLink";
+import AvatarInfo from "./AvatarInfo";
 
 const RandomValue = "random";
 
@@ -64,7 +65,7 @@ const ShowAvatar: React.FC = () => {
 			.catch((err) => console.log(err));
 	}, []);
 
-	let avatarLink = `http://localhost:8080/api/avatar?name=${seed}`;
+	let avatarLink = `${process.env.REACT_APP_API_ENDPOINT}/avatar?name=${seed}`;
 	if (selectedAnimeName != null)
 		avatarLink += `&animeName=${selectedAnimeName.value}`;
 
@@ -72,7 +73,7 @@ const ShowAvatar: React.FC = () => {
 
 	return (
 		<div className="pt-6 container">
-			<div className="row justify-content-start" id="show-avatar">
+			<div className="row justify-content-around align-items-end" id="show-avatar">
 				<div className="main-card col-md-12 p-relative">
 					<img
 						src={avatarLink}
@@ -137,6 +138,12 @@ const ShowAvatar: React.FC = () => {
 							/>
 						)}
 					</div>
+				</div>
+				<div className="mt-4 mt-lg-0">
+					<h6 className="text-32-bold">Your Avatar Options:</h6>
+					<AvatarInfo label="Name" value={seed} />
+					<AvatarInfo label="Anime Name" value={selectedAnimeName != null ? selectedAnimeName.label : "Random"} />
+					<AvatarInfo label="Gender"  value={selectedGender != null ? selectedGender.label : "Random"} />
 				</div>
 			</div>
 		</div>

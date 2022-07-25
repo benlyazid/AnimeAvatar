@@ -8,10 +8,11 @@ const Navbar: React.FC = () => {
 	return (
 		<div className="navbar-container">
 			<div className="container py-4">
-				<div className="row align-items-end justify-content-between">
+				<div className="row m-0 align-items-end justify-content-between">
 					<div className="row align-items-end">
 						<Logo />
-						<span className="white-clr h5 font-weight-600 mb-0">Anime list avatras</span>
+						<span className="white-clr h5 font-weight-600 mb-0 d-none d-lg-inline">Anime list avatras</span>
+						<span className="white-clr h5 font-weight-600 mb-0 d-inline d-lg-none">ALV</span>
 					</div>
 					<div className="links-container">
 						<Link  className="link-item icon-animate" to="/docs">
