@@ -38,17 +38,15 @@ def scrapImages(URL, StoragePath):
         charachterFullName = images[0]['alt']
         charachterName = charachterFullName.split()[-1]
         #? get charchter gender 
-        proxies = {
-            "http": "http://BU634LYWK58KHUYHHXI7O71UJYE06RITHE7EPPSQK2TBW0I9RONHUJVDVR84C1CV4YTET6EX10XM77IR:render_js=False&premium_proxy=True@proxy.scrapingbee.com:8886",
-            "https": "https://BU634LYWK58KHUYHHXI7O71UJYE06RITHE7EPPSQK2TBW0I9RONHUJVDVR84C1CV4YTET6EX10XM77IR:render_js=False&premium_proxy=True@proxy.scrapingbee.com:8887"
-        }
-
         _response = requests.get('https://api.genderize.io/?name=' + charachterName)
         data = BeautifulSoup(_response.content, "html.parser")
         dataJson=json.loads(data.text)
         charachterGender = 'male'
         if 'gender' in dataJson and dataJson['gender']: 
             charachterGender = dataJson['gender']
+        else:
+            print("you have reached the limit of 1000 request in day")
+            return
 
         imgData = images[0]['data-srcset'] # get data inside the data-secret
         imgURL = imgData.split()[2] # get the second url with size  84 *124
