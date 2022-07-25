@@ -12,8 +12,10 @@ const LeftSection: React.FC = () => {
 				And best of all: We provide a simple and free HTTP API that you
 				can use right away!
 			</h2>
-			<div className="mt-4 d-flex align-items-center">
-				<button className="main-btn">Create Your Avatar</button>
+			<div className="mt-4 row m-0 align-items-center">
+				<a href="#show-avatar" className="w-100 w-lg-auto mb-4 mb-lg-0">
+					<button className="main-btn w-100">Create Your Avatar</button>
+				</a>
 				<p className="mb-0">
 					<span className="ml-3 grey-clr">or</span>
 					<Link

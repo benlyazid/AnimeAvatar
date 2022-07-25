@@ -1,15 +1,15 @@
 import Navbar from "../components/Navbar/Navbar";
-import HomeBody from "../components/Home/HomeBody/HomeBody";
+import DocsBody from "../components/Docs/DocsBody/DocsBody";
 import Footer from "../components/Footer/Footer";
 
-const Home: React.FC = () => {
+const Docs: React.FC = () => {
   return (
 	<>
 		<Navbar />
-		<HomeBody />
+		<DocsBody />
 		<Footer />
 	</>
   );
 }
 
-export default Home;
+export default Docs;

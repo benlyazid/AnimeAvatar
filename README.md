@@ -1,5 +1,8 @@
 
-![Logo](https://raw.githubusercontent.com/benlyazid/AnimeAvatar/master/FrontEnd/public/logo512.png)
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/benlyazid/AnimeAvatar/master/FrontEnd/public/logo192.png" />
+</p>
 
 # AnimeAvatar
 

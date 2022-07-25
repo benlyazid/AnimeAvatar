@@ -14,7 +14,7 @@ body {
 	background-repeat: repeat, no-repeat;
 	background-color: rgb(50, 51, 62);
 	@extend .white-clr;
-	height: 100000px;
+	// height: 100000px;
 }
 .links-container {
 	display: flex;
@@ -24,6 +24,10 @@ body {
 }
 
 .link {
+	font-weight: 500;
+	line-height: 16px;
+	font-size: 16px;
+	color: white;
 }
 
 .link:hover {
@@ -34,14 +38,10 @@ body {
 .link-item {
 	@extend .white-clr;
 	@extend .link;
-	font-weight: 500;
-	// font-size: 20px;
 	margin-left: 28px;
 	display: flex;
 	align-items: flex-end;
 	gap: 12px;
-	line-height: 16px;
-	font-size: 16px;
 }
 
 .cog-icon,
@@ -80,7 +80,7 @@ body {
 }
 
 .main-card {
-	background-color: rgba(9, 20, 26, 1);
+	@extend .black-bg;
 	padding: 3rem;
 	padding-top: 2rem;
 	padding-bottom: 2rem;
@@ -223,3 +223,21 @@ body {
 		}
 	}
 }
+
+ @media (min-width: 992px) {
+	.w-lg-auto {
+		width: auto !important;
+	}
+ }
+
+ .mark-down-preview {
+	background-color: transparent !important;
+ }
+
+ .badge {
+	color: $darkColor;
+	font-size: 87.5%;
+	background-color: #ebedf0;
+    border-radius: 0.4rem;
+	padding: 0.2rem 0.4rem;
+ }
