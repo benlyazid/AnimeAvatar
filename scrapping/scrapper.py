@@ -74,8 +74,8 @@ def scrapImages(URL, StoragePath):
 
 
 
-url = 'https://myanimelist.net/anime/30276/One_Punch_Man/characters'
-storage  = '../anime/One_Punch_Man'
+url = 'https://myanimelist.net/anime/269/Bleach/characters'
+storage  = '../anime/Bleach'
 scrapImages(url, storage)
 #281 kirwako
 
