@@ -42,9 +42,10 @@ def scrapImages(URL, StoragePath):
         data = BeautifulSoup(_response.content, "html.parser")
         dataJson=json.loads(data.text)
         charachterGender = 'male'
+        print(dataJson)
         if 'gender' in dataJson and dataJson['gender']: 
             charachterGender = dataJson['gender']
-        else:
+        elif 'gender' not in dataJson:
             print("you have reached the limit of 1000 request in day")
             return
 
@@ -74,8 +75,8 @@ def scrapImages(URL, StoragePath):
 
 
 
-url = 'https://myanimelist.net/anime/1735/Naruto__Shippuuden/characters'
-storage  = '../anime/Naruto_Shippuuden'
+url = 'https://myanimelist.net/anime/30276/One_Punch_Man/characters'
+storage  = '../anime/One_Punch_Man'
 scrapImages(url, storage)
 #281 kirwako
 
