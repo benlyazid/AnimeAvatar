@@ -9,7 +9,6 @@ import json
 
 
 def resizeImage(imagePath):
-    # image = image.convert('RGB')
     try:
         image = Image.open(imagePath)
         box = (0, 0, 225, 225)
