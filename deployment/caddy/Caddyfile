@@ -1,4 +1,5 @@
 myanimelist.tech
+animelist.tech
 
 root * /var/www/html/build
 route {
