@@ -3,7 +3,11 @@ name: CI/CD counter app
 on:
   push:
     branches: [ master ]
-    
+    paths:
+      - BackEnd/**
+      - FrontEnd/**
+      - anime/**
+      - deployment/**
 
 jobs:
 #First we will see the application build or not , then we will deploy in EC2
