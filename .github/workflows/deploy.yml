@@ -23,5 +23,6 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-13-36-211-30.eu-west-3.compute.amazonaws.com '
 
           #Now we have got the access of EC2 and we will start the deploy .
-          /home/ubuntu/AnimeAvatar/redeploy.sh
+          cd /home/ubuntu/AnimeAvatar
+          ./redeploy.sh
         '
