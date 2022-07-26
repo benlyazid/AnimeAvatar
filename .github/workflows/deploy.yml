@@ -12,5 +12,5 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PASSWORD }}
-        port: 22
+        port: ${{ secrets.PORT }}
         script: echo "textooo" > /home/ubuntu/test.txt
