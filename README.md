@@ -8,7 +8,7 @@ this API is taking image from ```animelist```.
 ## Installation
 
 To install and run the project
-```bash
+```
   cd BackEnd
   npm install 
   npm start
@@ -18,7 +18,7 @@ To install and run the project
 
 #### Get Your avatar image 
 
-```http
+```
   GET /api/avatar?name=${_name}&gender=${_gneder}&animeName=${_anime}
 ```
 
@@ -33,17 +33,26 @@ That will return image for you.
 PS: If you didn't set any of the above variables it will chose randome value for evry unseted variables.
 
 #### Get all available anime
-```http
+```
   GET /api/animelist/
 ```
 This will return a JSON in this format :
 
-```
+```json
   {
     animeList : [{
-      "value":"Hunter_x_Hunter","label":"Hunter x Hunter",
-      {"value":"Naruto_Shippuuden","label":"Naruto Shippuuden"}
-    }],
+        value: "Naruto_Shippuuden",
+        label: "Naruto Shippuuden"
+        },
+        {
+            value: "One_Piece",
+            label: "One Piece"
+        },
+        {
+            value: "One_Punch_Man",
+            label: "One Punch Man"
+        }
+      ],
     numberOfAanime:3
   }
 ```
@@ -52,7 +61,7 @@ You can add any anime you whan't to the repo using the ```/scrapping/scrapper.py
 you just need to set url and storage variables
 
 Exemple
-``` python
+```
     url = 'https://myanimelist.net/anime/1735/Naruto__Shippuuden/characters'
     storage  = '../anime/Naruto_Shippuuden'
     you can get the url variable from animelist.net
