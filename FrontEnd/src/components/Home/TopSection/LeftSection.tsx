@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { Link as LinkSmooth } from "react-scroll";
+
+const smoothScrollDuration = 500;
 
 const LeftSection: React.FC = () => {
 	return (
@@ -13,9 +16,9 @@ const LeftSection: React.FC = () => {
 				can use right away!
 			</h2>
 			<div className="mt-4 row m-0 align-items-center">
-				<a href="#show-avatar" className="w-100 w-lg-auto mb-4 mb-lg-0">
+				<LinkSmooth smooth={true} to="show-avatar" className="w-100 w-lg-auto mb-4 mb-lg-0" duration={smoothScrollDuration}>
 					<button className="main-btn w-100">Create Your Avatar</button>
-				</a>
+				</LinkSmooth>
 				<p className="mb-0">
 					<span className="ml-3 grey-clr">or</span>
 					<Link
