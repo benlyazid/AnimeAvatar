@@ -43,21 +43,21 @@ This will return a JSON in this format :
 
 ```json
   {
-    animeList : [
+    "animeList" : [
        {
-          value: "Naruto_Shippuuden",
-          label: "Naruto Shippuuden"
+          "value": "Naruto_Shippuuden",
+          "label": "Naruto Shippuuden"
        },
        {
-          value: "One_Piece",
-          label: "One Piece"
+          "value": "One_Piece",
+          "label": "One Piece"
         },
         {
-          value: "One_Punch_Man",
-          label: "One Punch Man"
+          "value": "One_Punch_Man",
+          "label": "One Punch Man"
         }
       ],
-    numberOfAanime:3
+    "numberOfAanime": 3
   }
 ```
 ## Add new Anime to the project
