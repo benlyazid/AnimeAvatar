@@ -74,9 +74,7 @@ def scrapImages(URL, StoragePath):
 
 
 
-url = 'https://myanimelist.net/anime/269/Bleach/characters'
-storage  = '../anime/Bleach'
+url = 'https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood/characters'
+storage  = '../anime/Fullmetal_Alchemist_Brotherhood______test'
 scrapImages(url, storage)
 #281 kirwako
-
-#! should download onepiece images

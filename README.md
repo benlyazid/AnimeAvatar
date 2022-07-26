@@ -1,8 +1,5 @@
 
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/benlyazid/AnimeAvatar/master/FrontEnd/public/logo192.png" />
-</p>
+![Logo](https://raw.githubusercontent.com/benlyazid/AnimeAvatar/master/FrontEnd/public/logo512.png)
 
 # AnimeAvatar
 
@@ -21,7 +18,7 @@ To install and run the project
 
 #### Get Your avatar image 
 
-```
+```http
   GET /api/avatar?name=${_name}&gender=${_gneder}&animeName=${_anime}
 ```
 
@@ -36,7 +33,7 @@ That will return image for you.
 PS: If you didn't set any of the above variables it will chose randome value for evry unseted variables.
 
 #### Get all available anime
-```
+```http
   GET /api/animelist/
 ```
 This will return a JSON in this format :
@@ -50,17 +47,12 @@ This will return a JSON in this format :
     numberOfAanime:3
   }
 ```
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-
 ## Add new Anime to the project
 You can add any anime you whan't to the repo using the ```/scrapping/scrapper.py``` file 
 you just need to set url and storage variables
 
 Exemple
-```
+``` python
     url = 'https://myanimelist.net/anime/1735/Naruto__Shippuuden/characters'
     storage  = '../anime/Naruto_Shippuuden'
     you can get the url variable from animelist.net
@@ -69,5 +61,17 @@ Exemple
 Ps : The script can  download just 1000 image in day because it's use the ```api.genderize.io```
 that is limited in 1000 request in day to select the gender of images.
 
-After that you can run .....
+After that in the Backend folder run ```nmp run webp``` to convert all the new Images that you add 
+to webp format
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Authors
+
+- [@Benlyazid](https://www.github.com/benlyazid)
+- [@kirwa-KO](https://www.github.com/kirwa-KO/)
+
 
