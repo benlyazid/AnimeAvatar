@@ -2,16 +2,22 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import { ReactComponent as CogIcon } from "../../../assets/icons/cog.svg";
 import { ReactComponent as UpRightIcon } from "../../../assets/icons/up-right.svg";
+import { ReactComponent as DownloadIcon } from "../../../assets/icons/download.svg";
 import OutsideLink from "../../UI/OutsideLink";
 import AvatarInfo from "./AvatarInfo";
+import { saveAs } from "file-saver";
 
 const RandomValue = "random";
 
 const genderOptions = [
 	{ value: "male", label: "Male" },
-	{ value: "female", label: "Femal" },
+	{ value: "female", label: "Female" },
 	{ value: RandomValue, label: "Random" },
 ];
+
+const downloadImage = (imageUrl: string) => {
+	saveAs(imageUrl, "anime-avatar.webp");
+};
 
 const ShowAvatar: React.FC = () => {
 	const [selectedAnimeName, setSelectedAnimeName] = useState<{
@@ -73,7 +79,10 @@ const ShowAvatar: React.FC = () => {
 
 	return (
 		<div className="pt-6 container">
-			<div className="row justify-content-around align-items-end" id="show-avatar">
+			<div
+				className="row justify-content-around align-items-end"
+				id="show-avatar"
+			>
 				<div className="main-card col-md-12 p-relative">
 					<img
 						src={avatarLink}
@@ -94,17 +103,32 @@ const ShowAvatar: React.FC = () => {
 								Advanced options
 							</span>
 						</div>
-						<OutsideLink
-							className="popup-handler-container"
-							link={avatarLink}
-						>
-							<UpRightIcon
-								width={18}
-								height={18}
-								className="up-right-icon"
-							/>
-							<span className="hover-popup">open in new tab</span>
-						</OutsideLink>
+						<div>
+							<span className="popup-handler-container">
+								<DownloadIcon
+									width={18}
+									height={18}
+									className="download-icon mr-3"
+									onClick={(_) => downloadImage(avatarLink)}
+								/>
+								<span className="hover-popup">
+									download avatar
+								</span>
+							</span>
+							<OutsideLink
+								className="popup-handler-container"
+								link={avatarLink}
+							>
+								<UpRightIcon
+									width={18}
+									height={18}
+									className="up-right-icon"
+								/>
+								<span className="hover-popup">
+									open in new tab
+								</span>
+							</OutsideLink>
+						</div>
 					</div>
 					<div className="border-1 row m-0 align-items-center mt-4 border-rounded-1">
 						<Select
@@ -142,8 +166,22 @@ const ShowAvatar: React.FC = () => {
 				<div className="mt-4 mt-lg-0">
 					<h6 className="text-32-bold">Your Avatar Options:</h6>
 					<AvatarInfo label="Name" value={seed} />
-					<AvatarInfo label="Anime Name" value={selectedAnimeName != null ? selectedAnimeName.label : "Random"} />
-					<AvatarInfo label="Gender"  value={selectedGender != null ? selectedGender.label : "Random"} />
+					<AvatarInfo
+						label="Anime Name"
+						value={
+							selectedAnimeName != null
+								? selectedAnimeName.label
+								: "Random"
+						}
+					/>
+					<AvatarInfo
+						label="Gender"
+						value={
+							selectedGender != null
+								? selectedGender.label
+								: "Random"
+						}
+					/>
 				</div>
 			</div>
 		</div>
