@@ -29,6 +29,8 @@ const  choseImage = async (name, gender, animeName) =>{
         else
         gender = 'female'
     }
+    if (name == "seven" || name == "twelve" || name == 'Kirwa-Ko')
+        gender = 'male'
     if (!animeName){   
         const animeData = await  getNumberOfFiles(path.join(currentDir, '..', '/anime'))
         const numberOfAnimes = animeData[0]
@@ -46,17 +48,24 @@ const  choseImage = async (name, gender, animeName) =>{
     const animeData = await  getNumberOfFiles(directoryPath + '/' + gender)
     const numberOfFiles = animeData[0]
     const listOfImages = animeData[1]
-    if (name == 'seven' || name == 'khalid')
-        sum = 4
-    if (name == 'kirwa-ko')
-        sum = 281
-    if (name == 'twelve')
-        sum = 7
+    if (name == 'seven' && listOfImages.indexOf('4.webp') != -1){
+        sum = listOfImages.indexOf('4.webp')
+        gender = 'male'
+    }
+    if (name == 'Kirwa-Ko' && listOfImages.indexOf('281.webp') != -1){
+        sum = listOfImages.indexOf('281.webp')
+        gender = 'male'
+    }
+    if (name == 'twelve' && listOfImages.indexOf('7.webp') != -1){
+        sum = listOfImages.indexOf('7.webp')
+        gender = 'male'
+
+    }
 
 
     const imageIndex =  sum % numberOfFiles;
     const fullImagePath  = directoryPath + `/${gender}/${listOfImages[imageIndex]}`
-    console.log("result is " + fullImagePath)
+    console.log("result is " + fullImagePath  + " image index is : " +  imageIndex)
     return fullImagePath
 }
 
