@@ -1,9 +1,8 @@
-myanimelist.tech
-animelist.tech
-
-root * /var/www/html/build
-route {
-    reverse_proxy /api* anime_avatar_backend:8080
-    try_files {path} /index.html
-    file_server
+myanimelist.tech, animelist.tech {
+    root * /var/www/html/build
+    route {
+        reverse_proxy /api* anime_avatar_backend:8080
+        try_files {path} /index.html
+        file_server
+    }
 }
