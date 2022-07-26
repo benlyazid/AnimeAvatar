@@ -38,12 +38,21 @@ PS: If you didn't set any of the above variables it will chose randome value for
 ```
 This will return a JSON in this format :
 
-```
+```json
   {
     animeList : [{
-      "value":"Hunter_x_Hunter","label":"Hunter x Hunter",
-      {"value":"Naruto_Shippuuden","label":"Naruto Shippuuden"}
-    }],
+        value: "Naruto_Shippuuden",
+        label: "Naruto Shippuuden"
+        },
+        {
+            value: "One_Piece",
+            label: "One Piece"
+        },
+        {
+            value: "One_Punch_Man",
+            label: "One Punch Man"
+        }
+      ],
     numberOfAanime:3
   }
 ```
