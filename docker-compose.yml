@@ -1,0 +1,67 @@
+version: '3'
+services:
+
+  caddy: 
+    restart: unless-stopped
+    container_name: "caddy"
+    image: caddy/caddy:2.2.1-alpine
+    #build: 
+     #   context: .
+      #  dockerfile: ./deployment/caddy/Dockerfile
+    ports:
+        - 80:80
+        - 443:443
+    volumes:
+        - static-content:/var/www/html
+        - ./deployment/caddy/Caddyfile:/etc/caddy/Caddyfile
+        - caddy_data:/data
+        - caddy_config:/config
+        #- logging:/usr/share/caddy/logs
+        #- /etc/letsencrypt/live/www.scraspy.com:/etc/ssl
+    depends_on:
+        - anime_avatar_backend
+        - anime_avatar_frontend
+    networks:
+        - front-network
+
+  anime_avatar_backend:
+    restart: unless-stopped
+    build:
+      dockerfile: ./deployment/backend/Dockerfile
+      context: .
+    container_name: anime_avatar_backend
+    env_file:
+      - ./deployment/backend/.env
+    ports:
+      #- 8080:8080
+      - 8080
+    networks:
+        - front-network
+
+  anime_avatar_frontend:
+    # restart: unless-stopped
+    build:
+      dockerfile: ./deployment/frontend/Dockerfile
+      context: .
+    container_name: anime_avatar_frontend
+    depends_on:
+        - anime_avatar_backend
+    env_file:
+      - ./deployment/frontend/.env
+    volumes:
+    - static-content:/var/www/html
+    # ports:
+    #   #- 3000:3000
+    #   - 3000
+    # networks:
+    #     - front-network
+
+volumes:
+  caddy_data:
+  caddy_config:
+  static-content:
+    # database: {}
+    # logging: {}
+
+networks:
+  front-network:
