@@ -1,16 +1,27 @@
-name: remote ssh command
-on: [push]
-jobs:
+name: CI/CD counter app
 
+on:
+  push:
+    branches: [ master ]
+    
+
+jobs:
+#First we will see the application build or not , then we will deploy in EC2
   build:
-    name: Build
     runs-on: ubuntu-latest
+    
     steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: whoami
+    - uses: actions/checkout@v2
+    - name: Deploy in EC2
+      env:
+          PRIVATE_KEY: ${{ secrets.PASSWORD  }}
+          HOSTNAME : ${{ secrets.HOST  }}
+          USER_NAME : ${{ secrets.USERNAME  }}
+
+      run: |
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-13-36-211-30.eu-west-3.compute.amazonaws.com '
+
+          #Now we have got the access of EC2 and we will start the deploy .
+          /home/ubuntu/AnimeAvatar/redeploy.sh
+        '
