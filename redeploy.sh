@@ -13,4 +13,5 @@ do
 		git pull
 		sudo docker-compose up --build -d
 	fi
+	sleep 60
 done
