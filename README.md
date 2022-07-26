@@ -86,5 +86,3 @@ to webp format
 
 - [@Benlyazid](https://www.github.com/benlyazid)
 - [@kirwa-KO](https://www.github.com/kirwa-KO/)
-
-
