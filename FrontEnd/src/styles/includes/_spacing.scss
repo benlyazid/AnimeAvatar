@@ -7,3 +7,13 @@
 		padding-top: 6rem;
 	}
 }
+
+.pt-8 {
+	padding-top: 4rem;
+}
+
+@media (min-width: 992px) {
+	.pt-8 {
+		padding-top: 8rem;
+	}
+}

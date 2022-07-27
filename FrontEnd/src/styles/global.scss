@@ -6,12 +6,12 @@
 @import "./includes/animations";
 @import "./includes/borders";
 
-#root {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
+// #root {
+	// min-height: 100vh;
+	// display: flex;
+	// flex-direction: column;
+	// justify-content: space-between;
+// }
 
 body {
 	margin: 0;
@@ -115,12 +115,16 @@ body {
 	}
 }
 
-.main-card {
+.black-card {
 	@extend .black-bg;
 	padding: 3rem;
 	padding-top: 2rem;
 	padding-bottom: 2rem;
 	border-radius: 0.75rem;
+}
+
+.main-card {
+	@extend .black-card;
 	display: flex;
 	flex-direction: column;
 	position: relative;
