@@ -6,6 +6,13 @@
 @import "./includes/animations";
 @import "./includes/borders";
 
+#root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 body {
 	margin: 0;
 	font-family: "Poppins", sans-serif;

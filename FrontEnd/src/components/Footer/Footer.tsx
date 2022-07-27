@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
 							link="https://github.com/benlyazid"
 							className="link"
 						>
-							kbelyazid
+							benlyazid
 						</OutsideLink>{" "}
 						and{" "}
 						<OutsideLink
@@ -29,15 +29,24 @@ const Footer: React.FC = () => {
 					<div>
 						<div>
 							{/* [we are very 😀 about every coffee!] */}
+							Buy us a coffee
+							<a
+								href="https://www.buymeacoffee.com/s7v7n"
+								target="_blank"
+								rel="nofollow noopener noreferrer"
+								className="link"
+							>
+								{" "}benlyazid, {" "}
+							</a>
 							<a
 								href="https://www.buymeacoffee.com/imranbaali"
 								target="_blank"
 								rel="nofollow noopener noreferrer"
 								className="link"
 							>
-								{" "}
-								Buy us a coffee ☕
+								kirwako{" "}
 							</a>
+							☕
 						</div>
 					</div>
 				</div>
