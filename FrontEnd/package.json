@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+		"webp": "mv ./public/logo*.png ~/ && go-webp remove=true change=true && mv ~/logo*.png ./public/"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-scroll": "^1.8.4",
+    "go-webp": "^1.2.1",
     "react-scripts": "5.0.1",
     "sass": "^1.54.0",
     "typescript": "^4.7.4",
