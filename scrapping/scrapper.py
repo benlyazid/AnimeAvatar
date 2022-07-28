@@ -41,7 +41,6 @@ def scrapImages(URL, StoragePath):
         data = BeautifulSoup(_response.content, "html.parser")
         dataJson=json.loads(data.text)
         charachterGender = 'male'
-        print(dataJson)
         if 'gender' in dataJson and dataJson['gender']: 
             charachterGender = dataJson['gender']
         elif 'gender' not in dataJson:
@@ -74,7 +73,8 @@ def scrapImages(URL, StoragePath):
 
 
 
-url = 'https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood/characters'
-storage  = '../anime/Fullmetal_Alchemist_Brotherhood______test'
+url = 'https://myanimelist.net/anime/30276/One_Punch_Man/characters'
+storage  = '../anime/One_Punch_Man'
 scrapImages(url, storage)
-#281 kirwako
+
+#? done For : Fullmetal_Alchemist_Brotherhood, Hunter_x_Hunter, One_Punch_Man
