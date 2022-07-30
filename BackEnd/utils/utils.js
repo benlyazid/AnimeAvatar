@@ -54,12 +54,12 @@ const  choseImage = async (name, gender, animeName) =>{
 	numberOfImages = animeData[0]
 	listOfImages = animeData[1]
 	//? force the output images for our team hhhhhhhh
-	if (name == 'seven' && listOfImages.indexOf('4.webp') != -1)
-		sum = listOfImages.indexOf('4.webp')
-	if ((name == 'Kirwa-Ko' || name == 'kirwako') && listOfImages.indexOf('281.webp') != -1)
-		sum = listOfImages.indexOf('281.webp')
-	if (name == 'twelve' && listOfImages.indexOf('7.webp') != -1)
-		sum = listOfImages.indexOf('7.webp')
+	if (name == 'seven' && listOfImages.indexOf('4.jpg') != -1)
+		sum = listOfImages.indexOf('4.jpg')
+	if ((name == 'Kirwa-Ko' || name == 'kirwako') && listOfImages.indexOf('281.jpg') != -1)
+		sum = listOfImages.indexOf('281.jpg')
+	if (name == 'twelve' && listOfImages.indexOf('7.jpg') != -1)
+		sum = listOfImages.indexOf('7.jpg')
 
 	const imageIndex =  sum % numberOfImages;
 	const fullImagePath  = path.join(directoryPath, gender, listOfImages[imageIndex])
