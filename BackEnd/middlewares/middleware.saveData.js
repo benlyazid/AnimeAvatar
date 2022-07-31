@@ -8,7 +8,7 @@ const saveData = (req, res, next) => {
 	const gender = req.query.gender ? req.query.gender : 'random'
     const ip = requestIp.getClientIp(req)
     const date = new Date()
-    var geo = geoIp.lookup("ip");
+    var geo = geoIp.lookup(ip);
 
     const country = geo.country ? geo.country : " "
     const region = geo.region ? geo.region : " "
