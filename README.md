@@ -74,8 +74,6 @@ Exemple
 Ps : The script can  download just 1000 image in day because it's use the ```api.genderize.io```
 that is limited in 1000 request in day to select the gender of images.
 
-After that in the Backend folder run ```nmp run webp``` to convert all the new Images that you add 
-to webp format
 
 ## License
 
