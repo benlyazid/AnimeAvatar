@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const connectToMongoose = require('./utils/database').connectToMongoose
 const express = require("express");
 const apiRoutes = require("./routes/route.api")
 var cors = require('cors')
@@ -12,6 +12,12 @@ app.use((req, res, next) => {
   res.status(404).send("Page Not Found");
 });
 
-app.listen(8080, () => {
-  console.log("Server is running on port 8080");
-});
+connectToMongoose()
+.then(res=>{
+  app.listen(8080, () => {
+    console.log("Server is running on port 8080");    
+  })
+})
+.catch(err => {
+  console.log("ERROR ON CONNECT....\n" + err)
+})

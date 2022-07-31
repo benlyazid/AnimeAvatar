@@ -3,7 +3,6 @@ const { dirname } = require('path');
 
 const utils = require('../utils/utils')
 
-
 const getAnimeImage = (req, res, next) => {
 	let animeName = req.query.animeName
 	let name = req.query.name
