@@ -17,6 +17,14 @@ const Request = new mongoose.Schema({
 		type : String,
 		required : false    
 	},
+	date : {
+		type : Date,
+		required : false    
+	},
+	geoLocation : {
+		type : String,
+		required : false    
+	},
 
 })
 
