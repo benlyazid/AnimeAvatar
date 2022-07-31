@@ -16,7 +16,7 @@ const genderOptions = [
 ];
 
 const downloadImage = (imageUrl: string) => {
-	saveAs(imageUrl, "anime-avatar.webp");
+	saveAs(imageUrl, "anime-avatar.jpg");
 };
 
 const ShowAvatar: React.FC = () => {
