@@ -8,11 +8,11 @@ const ShowAvatar: React.FC = () => {
 	const [stats, setStats] = useState<{
 		numberOfRequests: number;
 		numberOfAnimes: number;
-		contries: number;
+		countries: number;
 	}>({
 		numberOfRequests: 0,
 		numberOfAnimes: 0,
-		contries: 0,
+		countries: 0,
 	});
 
 	useEffect(() => {
@@ -37,7 +37,7 @@ const ShowAvatar: React.FC = () => {
 					info={stats.numberOfRequests}
 				/>
 				<StatCard label="Supported Animes" info={stats.numberOfAnimes} />
-				<StatCard label="Countries" info={stats.contries} />
+				<StatCard label="Countries" info={stats.countries} />
 			</div>
 		</div>
 	);
