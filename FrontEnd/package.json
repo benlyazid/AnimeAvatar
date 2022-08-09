@@ -9,12 +9,13 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scroll": "^1.8.7",
-    "react-select": "^5.4.0"
+    "react-select": "^5.4.0",
+    "socket.io-client": "^4.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-		"webp": "mv ./public/logo*.png ~/ && go-webp remove=true change=true && mv ~/logo*.png ./public/"
+    "webp": "mv ./public/logo*.png ~/ && go-webp remove=true change=true && mv ~/logo*.png ./public/"
   },
   "eslintConfig": {
     "extends": [
