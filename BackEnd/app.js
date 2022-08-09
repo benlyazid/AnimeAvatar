@@ -5,6 +5,7 @@ const apiRoutes = require("./routes/route.api");
 var cors = require("cors");
 const app = express();
 const http = require("http").Server(app);
+const utils = require("./utils/utils");
 
 const io = require("socket.io")(http, {
   cors: {
@@ -12,7 +13,7 @@ const io = require("socket.io")(http, {
   },
 });
 
-const utils = require("./utils/utils");
+global.io = io;
 
 app.use(cors());
 app.use(apiRoutes);
@@ -23,18 +24,12 @@ app.use((req, res, next) => {
 
 connectToMongoose()
   .then((res) => {
-
-    io.on("connection", (socket) => {
-      console.log("a user connected");
-    //   io.emit("sendStatistiques", statistiques);
-
-    //   socket.on("getStatistiques", (msg) => {
-    //     const statistiques = utils.getStatistiques();
-    //     io.emit("sendStatistiques", statistiques);
-    //   });
+    io.on("connection", async (socket) => {
+      const statistiques = await utils.getStatistiques();
+      io.emit("sendStatistiques", statistiques);
     });
 
-    app.listen(8080, () => {
+    http.listen(8080, () => {
       console.log("Server is running on port 8080");
     });
   })

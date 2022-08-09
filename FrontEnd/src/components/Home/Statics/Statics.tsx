@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 
 
-const socket = io("http://localhost:8080");
+const socket = io(`${process.env.REACT_APP_API_LINK}`);
 
 const ShowAvatar: React.FC = () => {
 	const [stats, setStats] = useState<{
@@ -22,14 +22,11 @@ const ShowAvatar: React.FC = () => {
 				setStats(data);
 			})
 			.catch((err) => console.log(err));
-		socket.on("connect", () => {
-			// setSocketId(socket.id);
-			// console.log(id);
-			console.log("connected");
-		});
+
 		socket.on("sendStatistiques", data => {
-			console.log(data);
+			setStats(data);
 		});
+
 	}, []);
 
 	return (
@@ -40,7 +37,7 @@ const ShowAvatar: React.FC = () => {
 					info={stats.numberOfRequests}
 				/>
 				<StatCard label="Supported Animes" info={stats.numberOfAnimes} />
-				<StatCard label="Country Using" info={stats.contries} />
+				<StatCard label="Countries" info={stats.contries} />
 			</div>
 		</div>
 	);

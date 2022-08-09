@@ -5,6 +5,7 @@ import {
 	Route,
 	Routes
 } from "react-router-dom";
+
 import Home from "../pages/Home";
 
 const Docs = lazy(() => import("../pages/Docs"));

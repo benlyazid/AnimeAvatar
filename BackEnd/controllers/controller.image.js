@@ -10,8 +10,14 @@ const getAnimeImage = (req, res, next) => {
 	let gender = req.query.gender
 
 	utils.choseImage(name, gender, animeName)
-	.then(fullImagePath => {
+	.then(async fullImagePath => {
+		// console.log(global);
+		const statistiques = await utils.getStatistiques();
+
+		io.emit("sendStatistiques", statistiques);
+
 		return res.sendFile(fullImagePath)
+
 	})
 	.catch(err => {
 		console.log('===========================')

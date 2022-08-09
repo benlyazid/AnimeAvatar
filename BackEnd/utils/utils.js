@@ -1,7 +1,7 @@
 const { promises: fs } = require('fs');
 const { dirname } = require('path');
 const path = require('path')
-
+const Request = require('../models/model.request')
 const convertNameToNumber = (str) =>{
 	let sum = 0;
 	for (let i = 0; i < str.length; i++) {
@@ -70,7 +70,7 @@ const getStatistiques = async ()=> {
 		const currentDir = dirname(require.main.filename)
 		const satistiques = {}
 		const numberOfRequests = await  Request.count({})
-		const animeData = await  utils.getAllFilesInFolder(path.join(currentDir,  '..', '/anime'))
+		const animeData = await  getAllFilesInFolder(path.join(currentDir,  '..', '/anime'))
 		const numberOfAnimes = animeData[0]
 		const contries = await Request.find({}).select('geoLocation -_id')
 		const setOfcontries = [... new Set(contries.map(data => data.geoLocation.trim().split("_")[0]))]
