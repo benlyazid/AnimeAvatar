@@ -30,7 +30,7 @@ const ShowAvatar: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="pt-6 containeraround">
+		<div className="pt-6 container">
 			<div className="row justify-content-around m-0 p-0">
 				<StatCard
 					label="Used Avatars"
