@@ -17,13 +17,15 @@ const getAnimeImage = (req, res, next) => {
 		console.log('===========================')
 		console.log(err)
 		console.log('===========================')
-		res.status(500).send('Internal Server Error')
+		return res.status(500).send(JSON.stringify({
+			error: 'Internale server error'
+		}))
 	})
 }
 
 const getAnimeList = (req, res, next) => {
 	const currentDir = dirname(require.main.filename)
-	utils.getNumberOfFilesInFolder(path.join(currentDir,  '..', '/anime'))
+	utils.getAllFilesInFolder(path.join(currentDir,  '..', '/anime'))
 	.then(animeData=> {
 		const animeList = animeData[1].map(animeName => {
 			return {
@@ -40,22 +42,34 @@ const getAnimeList = (req, res, next) => {
 		console.log('===========================')
 		console.log(err)
 		console.log('===========================')
-		res.status(500).send(JSON.stringify({
+		return res.status(500).send(JSON.stringify({
 			error: 'Internale server error'
 		}))
 	})
 }
 
-const getNumberOfRequests = (req, res, next) => {
-	Request.count({}, (err, data) => {
-		if (err){
-			return res.status(500).send(JSON.stringify({
-				error: 'Internale server error'
-			}))
-		}
-		return res.send(JSON.stringify({
-			numberOfRequests : data
+const getStatistiques = async (req, res, next)=> {
+	try{
+		const currentDir = dirname(require.main.filename)
+		const satistiques = {}
+		const numberOfRequests = await  Request.count({})
+		const animeData = await  utils.getAllFilesInFolder(path.join(currentDir,  '..', '/anime'))
+		const numberOfAnimes = animeData[0]
+		const contries = await Request.find({}).select('geoLocation -_id')
+		const setOfcontries = [... new Set(contries.map(data => data.geoLocation.trim().split("_")[0]))]
+		console.log(setOfcontries)
+		satistiques.numberOfRequests = numberOfRequests
+
+		satistiques.numberOfAnimes = numberOfAnimes
+		satistiques.contries = setOfcontries.length
+		return res.send(satistiques)
+	}
+	catch(err){
+		console.error(err)
+		res.status(500).send(JSON.stringify({
+			error: 'Internale server error'
 		}))
-	})
-}
-module.exports = {getAnimeImage, getAnimeList, getNumberOfRequests}
+	}
+}	
+
+module.exports = {getAnimeImage, getAnimeList, getStatistiques}

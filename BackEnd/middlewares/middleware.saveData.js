@@ -10,9 +10,9 @@ const saveData = (req, res, next) => {
     const date = new Date()
     var geo = geoIp.lookup(ip);
 
-    const country = geo.country ? geo.country : " "
-    const region = geo.region ? geo.region : " "
-    const city = geo.city ? geo.city : " "
+    const country = geo && geo.country ? geo.country : " "
+    const region = geo && geo.region ? geo.region : " "
+    const city = geo && geo.city ? geo.city : " "
 
     const geoLocation = country + "_" + region + "_" + city
 

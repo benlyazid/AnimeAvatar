@@ -6,6 +6,6 @@ const saveData = require('../middlewares/middleware.saveData')
 
 router.get("/api/avatar", validateData, saveData, imagesController.getAnimeImage);
 router.get("/api/animelist", imagesController.getAnimeList);
-router.get("/api/numberofrequests",imagesController.getNumberOfRequests)
+router.get("/api/statistiques",imagesController.getStatistiques)
 
 module.exports = router;

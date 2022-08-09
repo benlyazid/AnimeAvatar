@@ -10,7 +10,7 @@ const convertNameToNumber = (str) =>{
 	return sum
 }
 
-const getNumberOfFilesInFolder = async (dir) => {
+const getAllFilesInFolder = async (dir) => {
 	const files = await fs.readdir(dir)
 	const count = files.length
 	return [count, files]
@@ -42,7 +42,7 @@ const  choseImage = async (name, gender, animeName) =>{
 	}
 	
 	if (!animeName){
-		animeData = await  getNumberOfFilesInFolder(path.join(currentDir, '..', '/anime')) //? get all availables animes/
+		animeData = await  getAllFilesInFolder(path.join(currentDir, '..', '/anime')) //? get all availables animes/
 		numberOfAnimes = animeData[0]
 		listOfAnime = animeData[1]
 		const index = sum % numberOfAnimes
@@ -50,7 +50,7 @@ const  choseImage = async (name, gender, animeName) =>{
 	}
 
 	directoryPath =  path.join(currentDir, '..', 'anime' , animeName)
-	animeData = await  getNumberOfFilesInFolder(directoryPath + '/' + gender) //? get all images in animaName/gender/
+	animeData = await  getAllFilesInFolder(directoryPath + '/' + gender) //? get all images in animaName/gender/
 	numberOfImages = animeData[0]
 	listOfImages = animeData[1]
 	//? force the output images for our team hhhhhhhh
@@ -65,5 +65,25 @@ const  choseImage = async (name, gender, animeName) =>{
 	const fullImagePath  = path.join(directoryPath, gender, listOfImages[imageIndex])
 	return fullImagePath
 }
-
-module.exports = {choseImage, getNumberOfFilesInFolder}
+const getStatistiques = async ()=> {
+	try{
+		const currentDir = dirname(require.main.filename)
+		const satistiques = {}
+		const numberOfRequests = await  Request.count({})
+		const animeData = await  utils.getAllFilesInFolder(path.join(currentDir,  '..', '/anime'))
+		const numberOfAnimes = animeData[0]
+		const contries = await Request.find({}).select('geoLocation -_id')
+		const setOfcontries = [... new Set(contries.map(data => data.geoLocation.trim().split("_")[0]))]
+		satistiques.numberOfRequests = numberOfRequests
+		satistiques.numberOfAnimes = numberOfAnimes
+		satistiques.contries = setOfcontries.length
+		return satistiques
+	}
+	catch(err){
+		console.error(err)
+		return JSON.stringify({
+			error: 'Internale server error'
+		})
+	}
+}	
+module.exports = {choseImage, getAllFilesInFolder, getStatistiques}
