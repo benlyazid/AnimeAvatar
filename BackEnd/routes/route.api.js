@@ -5,6 +5,7 @@ const validateData = require('../middlewares/middleware.validateData')
 const saveData = require('../middlewares/middleware.saveData')
 
 router.get("/api/avatar", validateData, saveData, imagesController.getAnimeImage);
-router.get("/api/animelist", imagesController.getAnimeList); //? return json
+router.get("/api/animelist", imagesController.getAnimeList);
+router.get("/api/numberofrequests",imagesController.getNumberOfRequests)
 
 module.exports = router;

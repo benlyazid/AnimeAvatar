@@ -1,5 +1,6 @@
 const path = require('path')
 const { dirname } = require('path');
+const Request = require('../models/model.request')
 
 const utils = require('../utils/utils')
 
@@ -45,5 +46,16 @@ const getAnimeList = (req, res, next) => {
 	})
 }
 
-
-module.exports = {getAnimeImage, getAnimeList}
+const getNumberOfRequests = (req, res, next) => {
+	Request.count({}, (err, data) => {
+		if (err){
+			return res.status(500).send(JSON.stringify({
+				error: 'Internale server error'
+			}))
+		}
+		return res.send(JSON.stringify({
+			numberOfRequests : data
+		}))
+	})
+}
+module.exports = {getAnimeImage, getAnimeList, getNumberOfRequests}

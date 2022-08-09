@@ -73,8 +73,8 @@ def scrapImages(URL, StoragePath):
 
 
 
-url = 'https://myanimelist.net/anime/269/Bleach/characters'
-storage  = '../anime/Bleach'
+url = 'https://myanimelist.net/anime/1535/Death_Note/characters'
+storage  = '../anime/Death_Note'
 scrapImages(url, storage)
 
-#? done For : Fullmetal_Alchemist_Brotherhood, Hunter_x_Hunter, One_Punch_Man, One_Piece, Naruto__Shippuuden Kimetsu_no_Yaiba
+#? done For : Fullmetal_Alchemist_Brotherhood, Hunter_x_Hunter, One_Punch_Man, One_Piece, Naruto__Shippuuden Kimetsu_no_Yaiba A_O_T Death_Note
