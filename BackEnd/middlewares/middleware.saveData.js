@@ -19,7 +19,7 @@ const saveData = (req, res, next) => {
     const  _request = new Request({ip, animeName, gender, name, date, geoLocation})
     _request.save()
     .then(data => {
-        req.country = country
+        req.country = "country"
         next()
     })
     .catch( err => {
