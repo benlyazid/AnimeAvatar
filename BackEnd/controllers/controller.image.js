@@ -11,10 +11,8 @@ const getAnimeImage = (req, res, next) => {
 
 	utils.choseImage(name, gender, animeName)
 	.then(async fullImagePath => {
-		// console.log(global);
-		const statistiques = await utils.getStatistiques();
 
-		io.emit("sendStatistiques", statistiques);
+		io.emit("sendStatistiques",  global.statistiques);
 
 		return res.sendFile(fullImagePath)
 
@@ -56,19 +54,7 @@ const getAnimeList = (req, res, next) => {
 
 const getStatistiques = async (req, res, next)=> {
 	try{
-		const currentDir = dirname(require.main.filename)
-		const satistiques = {}
-		const numberOfRequests = await  Request.count({})
-		const animeData = await  utils.getAllFilesInFolder(path.join(currentDir,  '..', '/anime'))
-		const numberOfAnimes = animeData[0]
-		const contries = await Request.find({}).select('geoLocation -_id')
-		const setOfcontries = [... new Set(contries.map(data => data.geoLocation.trim().split("_")[0]))]
-		console.log(setOfcontries)
-		satistiques.numberOfRequests = numberOfRequests
-
-		satistiques.numberOfAnimes = numberOfAnimes
-		satistiques.contries = setOfcontries.length
-		return res.send(satistiques)
+		return res.send(global.statistiques)
 	}
 	catch(err){
 		console.error(err)

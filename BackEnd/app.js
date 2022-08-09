@@ -14,7 +14,6 @@ const io = require("socket.io")(http, {
 });
 
 global.io = io;
-
 app.use(cors());
 app.use(apiRoutes);
 
@@ -23,14 +22,16 @@ app.use((req, res, next) => {
 });
 
 connectToMongoose()
-  .then((res) => {
-    io.on("connection", async (socket) => {
-      const statistiques = await utils.getStatistiques();
-      io.emit("sendStatistiques", statistiques);
-    });
+.then((res) => {
+  io.on("connection", async (socket) => {
+    io.emit("sendStatistiques",  global.statistiques);
+  });
+  
+  http.listen(8080, async () => {
+    console.log("Server is running on port 8080");
+    global.statistiques = await utils.getStatistiques()
 
-    http.listen(8080, () => {
-      console.log("Server is running on port 8080");
+
     });
   })
   .catch((err) => {

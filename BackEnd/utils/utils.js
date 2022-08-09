@@ -65,19 +65,21 @@ const  choseImage = async (name, gender, animeName) =>{
 	const fullImagePath  = path.join(directoryPath, gender, listOfImages[imageIndex])
 	return fullImagePath
 }
+
 const getStatistiques = async ()=> {
 	try{
 		const currentDir = dirname(require.main.filename)
-		const satistiques = {}
+		const statistiques = {}
 		const numberOfRequests = await  Request.count({})
 		const animeData = await  getAllFilesInFolder(path.join(currentDir,  '..', '/anime'))
 		const numberOfAnimes = animeData[0]
-		const contries = await Request.find({}).select('geoLocation -_id')
-		const setOfcontries = [... new Set(contries.map(data => data.geoLocation.trim().split("_")[0]))]
-		satistiques.numberOfRequests = numberOfRequests
-		satistiques.numberOfAnimes = numberOfAnimes
-		satistiques.contries = setOfcontries.length
-		return satistiques
+		const countries = await Request.find({}).select('geoLocation -_id')
+		const setOfcountries = [... new Set(countries.map(data => data.geoLocation.split("_")[0]))]
+		global.countries = setOfcountries
+		statistiques.numberOfRequests = numberOfRequests
+		statistiques.numberOfAnimes = numberOfAnimes
+		statistiques.countries = setOfcountries.length
+		return statistiques
 	}
 	catch(err){
 		console.error(err)
