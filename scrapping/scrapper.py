@@ -11,7 +11,8 @@ import json
 def resizeImage(imagePath):
     try:
         image = Image.open(imagePath)
-        box = (0, 0, 225, 225)
+        size = min(image.width, image.height)
+        box = (0, 0, size, size)
         cropped_image = image.crop(box)
         cropped_image.save(imagePath)
         image = Image.open(imagePath)
@@ -25,7 +26,6 @@ def resizeImage(imagePath):
     #? URL should be in this form https://myanimelist.net/anime/{id}/{animeName}/characters // check myanimelist
     #? StoragePath Where To store images EX `./anime/OnePiece`
 def scrapImages(URL, StoragePath):
-    # ANIME_NAME = 'Naruto__Shippuuden'
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
     job_elements = soup.find_all("a", class_="fw-n")
@@ -69,12 +69,12 @@ def scrapImages(URL, StoragePath):
             with open(fileName, 'wb') as handler:
                 handler.write(img_data)
             count += resizeImage(fileName)
-            # return
 
 
 
 url = 'https://myanimelist.net/anime/5231/Inazuma_Eleven/characters'
 storage  = '../anime/Inazuma_Eleven'
 scrapImages(url, storage)
+# resizeImage('/goinfre/kbenlyaz/AnimeAvatar/tst/1.jpg')
 
 #? done For : Fullmetal_Alchemist_Brotherhood, Hunter_x_Hunter, One_Punch_Man, One_Piece, Naruto__Shippuuden Kimetsu_no_Yaiba A_O_T Death_Note Inazuma_Eleven
