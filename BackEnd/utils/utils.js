@@ -23,6 +23,11 @@ const  choseImage = async (name, gender, animeName) =>{
 	let directoryPath;
 	let numberOfAnimes, animeData,listOfAnime
 	let numberOfImages, listOfImages
+
+	//?our footbaal team hhhhhhhhh
+	const l3iyanin = ['l3iyanin', 'ketkout', 'twelve', 'anouar', 'docker', 'joundi', 'raki', 'zakar', 'youness', 'seven', 'kirwa ', 'sso']
+	const l3iyaninImages = ['l3iyanin.svg', '1.jpg', '162.jpg', '125.jpg', '132.jpg', '138.jpg', '152.jpg', '304.jpg', '182.jpg', '64.jpg', '2.jpg', '225.jpg']
+
 	//? calcule the sum of gender, animeNmae and name if they exist
 	if (gender){
 		sum += convertNameToNumber(gender)
@@ -34,6 +39,10 @@ const  choseImage = async (name, gender, animeName) =>{
 
 	if (name == "seven" || name == "twelve" || name == 'Kirwa-Ko' || name == 'KirwaKo') //? force gebder for our team  memebers
 		gender = 'male'
+	else if (l3iyanin.indexOf(name) != -1){
+		gender = 'male'
+	}
+
 	else if (!gender){
 		if (sum % 2)
 			gender = 'male'
@@ -53,13 +62,20 @@ const  choseImage = async (name, gender, animeName) =>{
 	animeData = await  getAllFilesInFolder(directoryPath + '/' + gender) //? get all images in animaName/gender/
 	numberOfImages = animeData[0]
 	listOfImages = animeData[1]
+
 	//? force the output images for our team hhhhhhhh
-	if (name == 'seven' && listOfImages.indexOf('4.jpg') != -1)
-		sum = listOfImages.indexOf('4.jpg')
-	if ((name == 'Kirwa-Ko' || name == 'kirwako') && listOfImages.indexOf('281.jpg') != -1)
-		sum = listOfImages.indexOf('281.jpg')
-	if (name == 'twelve' && listOfImages.indexOf('7.jpg') != -1)
-		sum = listOfImages.indexOf('7.jpg')
+	if (animeName == 'Inazuma_Eleven' && l3iyanin.indexOf(name) != -1){
+		const index = l3iyanin.indexOf(name)
+		sum = listOfImages.indexOf(l3iyaninImages[index])
+	}
+	else{
+		if (name == 'seven' && listOfImages.indexOf('4.jpg') != -1)
+			sum = listOfImages.indexOf('4.jpg')
+		if ((name == 'Kirwa-Ko' || name == 'kirwako') && listOfImages.indexOf('281.jpg') != -1)
+			sum = listOfImages.indexOf('281.jpg')
+		if (name == 'twelve' && listOfImages.indexOf('7.jpg') != -1)
+			sum = listOfImages.indexOf('7.jpg')
+	}
 
 	const imageIndex =  sum % numberOfImages;
 	const fullImagePath  = path.join(directoryPath, gender, listOfImages[imageIndex])
