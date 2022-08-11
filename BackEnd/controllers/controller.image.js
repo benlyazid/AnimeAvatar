@@ -13,7 +13,7 @@ const getAnimeImage = (req, res, next) => {
 	.then(async fullImagePath => {
 
 		io.emit("sendStatistiques",  global.statistiques);
-
+		console.log(fullImagePath)
 		return res.sendFile(fullImagePath)
 
 	})
