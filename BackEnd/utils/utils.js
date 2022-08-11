@@ -25,7 +25,7 @@ const  choseImage = async (name, gender, animeName) =>{
 	let numberOfImages, listOfImages
 
 	//?our footbaal team hhhhhhhhh
-	const l3iyanin = ['l3iyanin', 'ketkout', 'twelve', 'anouar', 'docker', 'joundi', 'raki', 'zakar', 'youness', 'seven', 'kirwa ', 'sso']
+	const l3iyanin = ['l3iyanin', 'ketkout', 'twelve', 'anouar', 'docker', 'joundi', 'raki', 'zakar', 'youness', 'seven', 'kirwako', 'sso']
 	const l3iyaninImages = ['l3iyanin.svg', '1.jpg', '162.jpg', '125.jpg', '132.jpg', '138.jpg', '152.jpg', '304.jpg', '182.jpg', '64.jpg', '2.jpg', '225.jpg']
 
 	//? calcule the sum of gender, animeNmae and name if they exist
