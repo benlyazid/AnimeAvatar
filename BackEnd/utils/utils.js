@@ -59,7 +59,10 @@ const  choseImage = async (name, gender, animeName) =>{
 	}
 
 	directoryPath =  path.join(currentDir, '..', 'anime' , animeName)
-	animeData = await  getAllFilesInFolder(directoryPath + '/' + gender) //? get all images in animaName/gender/
+	if (animeName == "one_Piece_Crews")
+		animeData = await  getAllFilesInFolder(directoryPath + '/') //? get all images in animaName/
+	else
+		animeData = await  getAllFilesInFolder(directoryPath + '/' + gender) //? get all images in animaName/gender/
 	numberOfImages = animeData[0]
 	listOfImages = animeData[1]
 
@@ -68,7 +71,7 @@ const  choseImage = async (name, gender, animeName) =>{
 		const index = l3iyanin.indexOf(name)
 		sum = listOfImages.indexOf(l3iyaninImages[index])
 	}
-	else{
+	else if (animeName != "one_Piece_Crews"){ //? because they have .png ext
 		if (name == 'seven' && listOfImages.indexOf('4.jpg') != -1)
 			sum = listOfImages.indexOf('4.jpg')
 		if ((name == 'Kirwa-Ko' || name == 'kirwako') && listOfImages.indexOf('281.jpg') != -1)
