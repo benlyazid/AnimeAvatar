@@ -81,7 +81,11 @@ const  choseImage = async (name, gender, animeName) =>{
 	}
 
 	const imageIndex =  sum % numberOfImages;
-	const fullImagePath  = path.join(directoryPath, gender, listOfImages[imageIndex])
+	let  fullImagePath="";
+	if (animeName != "one_Piece_Crews")
+		fullImagePath  = path.join(directoryPath, gender, listOfImages[imageIndex])
+	else
+		fullImagePath  = path.join(directoryPath, listOfImages[imageIndex])
 	return fullImagePath
 }
 
