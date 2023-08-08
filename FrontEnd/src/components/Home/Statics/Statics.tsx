@@ -48,7 +48,7 @@ export default ShowAvatar;
 const StatCard: React.FC<{ label: string, info: number }> = ({ label, info }) => {
 	return (
 		<div className="col-lg-4 mt-4 mt-lg-0 d-flex align-items-center flex-column justify-content-center">
-			<p className="text-32-bold grey-clr main-clr">{label}</p>
+			<p className="text-32-bold grey-clr main-clr text-center">{label}</p>
 			<p className="text-40-bold mb-0">{info}</p>
 		</div>
 	);
