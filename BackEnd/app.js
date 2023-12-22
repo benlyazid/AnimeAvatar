@@ -7,6 +7,8 @@ const app = express();
 const http = require("http").Server(app);
 const utils = require("./utils/utils");
 
+const port = process.env.PORT
+
 const io = require("socket.io")(http, {
   cors: {
     origin: "*",
@@ -27,8 +29,8 @@ connectToMongoose()
     io.emit("sendStatistiques",  global.statistiques);
   });
   
-  http.listen(8090, async () => {
-    console.log("Server is running on port 8080");
+  http.listen(port, async () => {
+    console.log("Server is running on port "+ port);
     global.statistiques = await utils.getStatistiques()
 
 
