@@ -83,4 +83,4 @@ that is limited in 1000 request in day to select the gender of images.
 ## Authors
 
 - [@Benlyazid](https://www.github.com/benlyazid)
-- [@kirwa-KO](https://www.github.com/kirwa-KO/)
+- [@kirwako](https://www.github.com/kirwako/)
