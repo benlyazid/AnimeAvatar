@@ -27,7 +27,7 @@ connectToMongoose()
     io.emit("sendStatistiques",  global.statistiques);
   });
   
-  http.listen(8080, async () => {
+  http.listen(8090, async () => {
     console.log("Server is running on port 8080");
     global.statistiques = await utils.getStatistiques()
 
